@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: "Poppins", system-ui, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #1e1e1e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Bluebook-ish focus ring */
+*:focus-visible {
+  outline: 3px solid #324dc7;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .cb-btn-yellow {
+    @apply inline-flex items-center justify-center rounded-full bg-cb-yellow px-8 py-3 text-[15px] font-bold text-black transition hover:bg-cb-yellowhover active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400;
+  }
+  .cb-btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-black bg-white px-8 py-3 text-[15px] font-bold text-black transition hover:bg-gray-100 active:scale-[0.98];
+  }
+  .cb-btn-blue {
+    @apply inline-flex items-center justify-center rounded-full bg-cb-blue px-7 py-2.5 text-[15px] font-bold text-white transition hover:bg-[#2a41ab] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .cb-code-box {
+    @apply flex h-[74px] w-[74px] items-center justify-center rounded-xl border border-cb-line bg-white text-3xl font-medium text-cb-gray;
+  }
+}
+
+/* Passage / stem body copy inside the test */
+.cb-prose {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #1e1e1e;
+}
+.cb-prose p + p {
+  margin-top: 1em;
+}
+.cb-prose ul,
+.cb-prose ol {
+  margin: 0.9em 0;
+  padding-left: 1.4em;
+  list-style: disc;
+}
+.cb-prose ol {
+  list-style: decimal;
+}
+.cb-prose li + li {
+  margin-top: 0.35em;
+}
+.cb-prose figure {
+  margin: 0.5em 0 1em;
+}
+.cb-prose figcaption {
+  margin-bottom: 0.6em;
+  text-align: center;
+  font-size: 15px;
+}
+.cb-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.cb-prose th,
+.cb-prose td {
+  border: 1px solid #1e1e1e;
+  padding: 7px 10px;
+  text-align: center;
+}
+.cb-prose thead th {
+  background: #f0f0f0;
+  font-weight: 600;
+}
+.cb-prose u {
+  text-underline-offset: 3px;
+}
+
+/* highlight marks inside passages */
+mark.cb-hl {
+  background: #ffe86b;
+  padding: 1px 0;
+  border-radius: 2px;
+}
+
+/* crossed-out answer choice */
+.cb-crossed {
+  position: relative;
+  opacity: 0.5;
+}
+.cb-crossed::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 50%;
+  height: 1.5px;
+  background: #1e1e1e;
+}
+
+.no-select {
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 10px;
+  border: 3px solid #fff;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
